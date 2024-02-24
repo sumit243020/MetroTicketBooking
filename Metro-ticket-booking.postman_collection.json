@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "4c0fea9d-fa25-48b1-9e8e-d1382a9cccef",
+		"name": "Metro-ticket-booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33061817"
+	},
+	"item": [
+		{
+			"name": "create-stations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"stationName\": \"A\",\r\n        \"price\": 0.0,\r\n        \"startStation\": true\r\n    },\r\n    {\r\n        \"stationName\": \"B\",\r\n        \"price\": 5.0\r\n    },\r\n    {\r\n        \"stationName\": \"D\",\r\n        \"price\": 10.0,\r\n        \"startStation\": false,\r\n        \"lastStation\": false\r\n    },\r\n    {\r\n        \"stationName\": \"E\",\r\n        \"price\": 15.0\r\n    },\r\n    {\r\n        \"stationName\": \"F\",\r\n        \"price\": 20.0\r\n    },\r\n    {\r\n        \"stationName\": \"G\",\r\n        \"price\": 25.0\r\n    },\r\n    {\r\n        \"stationName\": \"H\",\r\n        \"price\": 30.0\r\n    },\r\n    {\r\n        \"stationName\": \"I\",\r\n        \"price\": 35.0\r\n    },\r\n    {\r\n        \"stationName\": \"J\",\r\n        \"price\": 40.0\r\n    },\r\n    {\r\n        \"stationName\": \"K\",\r\n        \"price\": 45.0\r\n    },\r\n    {\r\n        \"stationName\": \"L\",\r\n        \"price\": 50.0\r\n    },\r\n    {\r\n        \"stationName\": \"M\",\r\n        \"price\": 55.0\r\n    },\r\n    {\r\n        \"stationName\": \"N\",\r\n        \"price\": 60.0\r\n    },\r\n    {\r\n        \"stationName\": \"O\",\r\n        \"price\": 65.0\r\n    },\r\n    {\r\n        \"stationName\": \"P\",\r\n        \"price\": 70.0\r\n    },\r\n    {\r\n        \"stationName\": \"Q\",\r\n        \"price\": 75.0\r\n    },\r\n    {\r\n        \"stationName\": \"R\",\r\n        \"price\": 80.0\r\n    },\r\n    {\r\n        \"stationName\": \"S\",\r\n        \"price\": 85.0\r\n    },\r\n    {\r\n        \"stationName\": \"T\",\r\n        \"price\": 90.0\r\n    },\r\n    {\r\n        \"stationName\": \"U\",\r\n        \"price\": 95.0,\r\n        \"lastStation\": true\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/station-master/create-stations",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"station-master",
+						"create-stations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-All-stations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/station-master/all-station-list",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"station-master",
+						"all-station-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ticket-booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startStationId\":4,\r\n    \"endStationId\":19\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/ticket-booking/generate-ticket",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ticket-booking",
+						"generate-ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ticket-price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/ticket-booking/get-ticket-prising/:ticketNo",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ticket-booking",
+						"get-ticket-prising",
+						":ticketNo"
+					],
+					"variable": [
+						{
+							"key": "ticketNo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/ticket-booking/checkin/:ticketNo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ticket-booking",
+						"checkin",
+						":ticketNo"
+					],
+					"variable": [
+						{
+							"key": "ticketNo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check-out",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/ticket-booking/checkout/:ticketNo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ticket-booking",
+						"checkout",
+						":ticketNo"
+					],
+					"variable": [
+						{
+							"key": "ticketNo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
